@@ -1,7 +1,8 @@
 var connection = require("../config/connection.js");
+// This file is used by model file
 // Object for all our SQL statement functions.
 var orm = {
-  all: function(tableInput, cb) {
+  all: function(cb) {
     connection.query("select * from burgers;", function(err, result) {
       if (err) {
         throw err;
