@@ -11,7 +11,7 @@ var orm = {
     });
   },
   create: function(name, cb) {
-    connection.query("INSERT INTO burger (name ,status) VALUES (?, 'Not Eaten')", name, function(err, result) {
+    connection.query("INSERT INTO burger (name, eaten) VALUES (?, false)", name, function(err, result) {
       if (err) {
         throw err;
       }
@@ -20,7 +20,7 @@ var orm = {
     });
   },
   update: function(id, cb) {
-    connection.query("UPDATE burger Set status = 'Eaten' where ?", id, (err, result) => {
+    connection.query("UPDATE burger Set eaten = ? where id = ?", [true, id], (err, result) => {
       if (err) {
         throw err;
       }

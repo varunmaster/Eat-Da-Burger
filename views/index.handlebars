@@ -3,9 +3,9 @@
 <h2>Burgers not eaten:</h2>
 
 <ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
+  {{#each burgers}}
+    {{#unless eaten}}
+      {{> cats/cat-block eaten=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -13,9 +13,9 @@
 <h2>Burgers that are eaten:</h2>
 
 <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+  {{#each burgers}}
+    {{#if eaten}}
+      {{> cats/cat-block eaten=false}}
     {{/if}}
   {{/each}}
 </ul>
