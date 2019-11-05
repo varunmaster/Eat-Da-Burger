@@ -3,7 +3,7 @@ var connection = require("../config/connection.js");
 // Object for all our SQL statement functions.
 var orm = {
   all: function(cb) {
-    connection.query("select * from burgers;", function(err, result) {
+    connection.query("select * from burger;", function(err, result) {
       if (err) {
         throw err;
       }
@@ -11,7 +11,7 @@ var orm = {
     });
   },
   create: function(name, cb) {
-    connection.query("INSERT INTO burgers (name ,status) VALUES (?, 'Not Eaten')", name, function(err, result) {
+    connection.query("INSERT INTO burger (name ,status) VALUES (?, 'Not Eaten')", name, function(err, result) {
       if (err) {
         throw err;
       }
@@ -20,7 +20,7 @@ var orm = {
     });
   },
   update: function(id, cb) {
-    connection.query("UPDATE burgers Set status = 'Eaten' where id = ?", id, (err, result) => {
+    connection.query("UPDATE burger Set status = 'Eaten' where ?", id, (err, result) => {
       if (err) {
         throw err;
       }
